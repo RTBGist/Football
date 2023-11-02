@@ -10,4 +10,21 @@
   box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
   padding: 30px 15px;
   transition: all .5s ease;
+  transform: translateY(-25px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0px);
+  visibility: visible;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }

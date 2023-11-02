@@ -5,19 +5,23 @@ import {useEffect, useState} from "react";
 import {TooltipProps} from "./model/types";
 
 export const Tooltip = (props: TooltipProps) => {
-	const {className, isVisible = false, type, children} = props;
-	const [showModal, setShowModal] = useState<boolean>(isVisible);
+	const {className, isVisible = false, type, children, timeout = 7000} = props;
+	const [showModal, setShowModal] = useState<boolean>(false);
 
 	useEffect(() => {
+		if(isVisible) {
+			setShowModal(true)
+		}
+
 		setTimeout(() => {
 			setShowModal(false);
-		}, 5000)
-	})
+		}, timeout)
+	}, [])
 
 	return (
 			<>
-				{showModal && createPortal(
-						<div className={classNames(cls.tooltip, className)}>{children}</div>,
+				{createPortal(
+						<div onClick={() => setShowModal(false)} className={classNames(cls.tooltip,  showModal ? cls.visible : '', cls[type])}>{children}</div>,
 						document.body
 				)}
 			</>

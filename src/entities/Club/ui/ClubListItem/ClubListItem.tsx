@@ -9,10 +9,22 @@ interface ClubListItemProps {
 	className?: string,
 	club: Club;
 	isLoading?: boolean;
+	isLink?: boolean
 }
 
 export const ClubListItem = (props: ClubListItemProps) => {
-	const {className, club, isLoading = false} = props;
+	const {className, club, isLoading = false, isLink = false} = props;
+	const content = () => {
+		return (
+				<>
+					<div className={classNames(cls.logoWrap)}>
+						<img src={club.logo} alt="logo"/>
+					</div>
+					<span className={classNames(cls.itemHdr)}>{club.name}</span>
+					<span className={classNames(cls.itemDescription)}>{club.description}</span>
+				</>
+		)
+	}
 
 	if(isLoading) {
 		return (
@@ -25,12 +37,17 @@ export const ClubListItem = (props: ClubListItemProps) => {
 	}
 
 	return (
-			<NavLink to={`club/${club.id}`} className={classNames(cls.clublistitem, className)}>
-				<div className={classNames(cls.logoWrap)}>
-					<img src={club.logo} alt="logo"/>
-				</div>
-				<span className={classNames(cls.itemHdr)}>{club.name}</span>
-				<span className={classNames(cls.itemDescription)}>{club.description}</span>
-			</NavLink>
+			<>
+				{isLink ? (
+						<NavLink to={`club/${club.id}`} className={classNames(cls.clublistitem, className)}>
+							{content()}
+						</NavLink>
+				) : (
+						<div className={classNames(cls.clublistitem, className)}>
+							{content()}
+						</div>
+				)}
+			</>
+
 	);
 };

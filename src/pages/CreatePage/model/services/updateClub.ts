@@ -6,7 +6,7 @@ export const updateClub = createAsyncThunk<Club[], Club>(
 		'updateClub',
 		async (club, thunkAPI) => {
 			try {
-				const response: Club[] = await axios.patch(`http://localhost:8000/clubs/${club.id}`, club);
+				const response = await axios.patch(`http://localhost:8000/clubs/${club.id}`, club);
 
 				if(!response.data) {
 					throw new Error();

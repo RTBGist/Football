@@ -6,7 +6,7 @@ export const fetchAllClubs = createAsyncThunk<Club[], undefined>(
 		'fetchAllClubs',
 		async (_, { rejectWithValue }) => {
 			try {
-				const response: Club[] = await axios.get('http://localhost:8000/clubsdsa');
+				const response = await axios.get('http://localhost:8000/clubs');
 
 				if(!response.data) {
 					throw new Error('error');

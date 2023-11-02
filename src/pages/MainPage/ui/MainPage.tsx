@@ -26,14 +26,24 @@ export const MainPage = (props: MainPageProps) => {
 	return (
 			<>
 				<ContentContainer>
-					<ClubList clubList={clubsList} isLoading={clubsListIsLoading} />
+					<ClubList clubList={clubsList} isLoading={clubsListIsLoading} isLink />
 				</ContentContainer>
 
-				<Tooltip type={TooltipType.ERROR} isVisible={true}>
-					<>
-						{clubsListError}
-					</>
-				</Tooltip>
+				{clubsList.length ? (
+						<Tooltip type={TooltipType.SUCCESS} isVisible timeout={3000}>
+							<>
+								Успешно!
+							</>
+						</Tooltip>
+				) : null}
+
+				{clubsListError && (
+						<Tooltip type={TooltipType.ERROR} isVisible>
+							<>
+								{clubsListError}
+							</>
+						</Tooltip>
+				)}
 			</>
 	);
 };

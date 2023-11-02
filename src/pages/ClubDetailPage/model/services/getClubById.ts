@@ -6,7 +6,7 @@ export const getClubById = createAsyncThunk<Club, string>(
 		'getClubById',
 		async (id, thunkAPI) => {
 			try {
-				const response: Club = await axios.get(`http://localhost:8000/clubs/${id}`);
+				const response = await axios.get(`http://localhost:8000/clubs/${id}`);
 
 				if(!response.data) {
 					throw new Error();

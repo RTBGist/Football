@@ -9,6 +9,7 @@ import {useAppDispatch} from "src/shared/libs/hooks/useAppDispatch";
 import {updateClub} from "src/pages/CreatePage/model/services/updateClub";
 import {deleteClub} from "src/pages/CreatePage/model/services/deleteClub";
 import {Skeleton} from "src/shared/ui/Skeleton/Skeleton";
+import {NavLink} from "react-router-dom";
 
 
 interface ClubFormProps {
@@ -76,6 +77,7 @@ export const ClubForm = (props: ClubFormProps) => {
 	if(!editMode) {
 		return (
 				<ContentContainer className={classNames(cls.clubForm, className)}>
+					<NavLink to={'/'}>Назад</NavLink>
 					<ClubListItem club={clubForm} />
 
 					<div className={classNames(cls.clubBtnWrap)}>
