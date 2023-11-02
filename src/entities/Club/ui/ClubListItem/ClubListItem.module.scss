@@ -1,0 +1,42 @@
+.clublistitem {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  display: block;
+
+  .logoWrap {
+    max-width: 180px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  .itemHdr {
+    display: block;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  .itemDescription {
+    display: block;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+  }
+}
+.skeletonLogo {
+  margin: 0 auto 15px;
+}
+.skeletonHdr {
+  margin-bottom: 15px;
+}
+.skeletonDescr {
+  margin-bottom: 15px;
+}
